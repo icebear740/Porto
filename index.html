@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rei Porto</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+<div id="toast"><i class="fas fa-check-circle"></i> Pesan Berhasil Terkirim! 🚀</div>
+    <div id="canvas-container"></div>
+    <div class="bg-overlay"></div>
+
+    <nav>
+        <div class="logo">REI<span>.STUDIO</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#project">Project</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>DESIGNING<br><span>MEANINGFUL</span>WEB INTERFACES</h1>
+                <p>Menggabungkan estetika visual dan fungsionalitas untuk pengalaman web yang nyaman dan efektif.</p>
+                <button class="btn-ajak" onclick="location.href='#contact'">Let's Talk</button>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">About <span>Me</span></h2>
+        <div class="about-grid">
+            <p>I am a web developer focused on creating clean, modern, and user-friendly websites. I value good design, performance, and simplicity to deliver efficient and reliable web experiences.</p>
+            <div class="skill-tags">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">NODE.JS</span>
+                <span class="skill-tag">NEXT.JS</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">UI/UX</span>
+                <span class="skill-tag">POSTGRESQL</span>
+                <span class="skill-tag">MYSQL</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="project">
+        <h2 style="margin-bottom: 3rem; font-size: 2.5rem; text-align: center;">Selected <span>Works</span></h2>
+        <div class="project-grid">
+            <a href="https://icebear740.github.io/coffee/#home" class="project-card">
+                <div class="project-img"><img src="image.png" alt=""></div>
+                <div class="project-info">
+                    <h3 style="color: var(--neon-blue);">Coffee Tree</h3>
+                    <p style="color: #888;">Next-gen e-commerce interface.</p>
+                </div>
+            </a>
+            <a href="#" class="project-card">
+                <div class="project-img"><img src="image2.png" alt=""></div>
+                <div class="project-info">
+                    <h3 style="color: var(--neon-blue);">WEB3</h3>
+                    <p style="color: #888;">World's 1st Crowdfunding</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">My <span>Journey</span></h2>
+        <div class="resume-container">
+            <div class="resume-item">
+                <span class="resume-date">2025 - PRESENT</span>
+                <h3>Fullstack Developer</h3>
+                <p style="color: #666;">Tabriiz</p>
+                <p>Developed a web-based crowdfunding platform that allows users to create
+campaigns, manage donations, and track fundraising progress. Contributed to both
+frontend and backend development, database integration, and functional testing to
+ensure system reliability.</p>
+            </div>
+            <div class="resume-item">
+                <span class="resume-date">2025 - PRESENT</span>
+                <h3>Teacher Coding & Robbotic</h3>
+                <p style="color: #666;">Codero</p>
+                <p>Taught students programming fundamentals, ranging from basic syntax to problem
+solving using algorithms.</p>
+            </div>
+             <div class="resume-item">
+                <span class="resume-date">2024 - 2024</span>
+                <h3>Fullstack Developer</h3>
+                <p style="color: #666;">Noctoornal Studio</p>
+                <p>Developed a web-based application for managing building facilities and tenant
+information & maintenance request submission, tenant database, and admin
+dashboard</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 style="margin-bottom: 3rem; font-size: 2.5rem; text-align: center;">Let's <span>Talk</span></h2>
+        <div class="contact-box">
+            <div class="contact-info">
+                <p>Punya ide gila? Mari kita diskusikan dan wujudkan menjadi kenyataan digital.</p>
+                <div class="socials">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <form action="https://formspree.io/f/mreejbbz" method="POST">
+    <input type="text" name="name" placeholder="Nama Lengkap" required>
+    
+    <input type="email" name="_replyto" placeholder="Alamat Email" required>
+    
+    <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+    
+    <button type="submit" class="btn-ajak">Kirim Sekarang</button>
+</form>
+        </div>
+    </section>
+
+    <script>
+        // --- THREE.JS: RIBBONS & MULTI-POSITION OBJECTS ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // 1. PS3 RIBBONS
+        const ribbons = [];
+        for (let i = 0; i < 6; i++) {
+            const geo = new THREE.PlaneGeometry(120, 0.05, 100, 1);
+            const mat = new THREE.MeshBasicMaterial({
+                color: 0x00f3ff, transparent: true, opacity: 0.1 + (i * 0.05),
+                side: THREE.DoubleSide, blending: THREE.AdditiveBlending
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.z = i * 0.8;
+            ribbons.push({ mesh, speed: 0.2 + (i * 0.05), phase: i * 0.5, amp: 1.5 + (i * 0.3) });
+            scene.add(mesh);
+        }
+
+        // 2. SCATTERED 3D OBJECTS (Banyak Posisi)
+        const objects = [];
+        const mat = new THREE.MeshBasicMaterial({ color: 0x00f3ff, wireframe: true, transparent: true, opacity: 0.1 });
+        
+        const createObj = (geo, x, y, z) => {
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(x, y, z);
+            scene.add(mesh);
+            objects.push(mesh);
+        };
+
+        const isMob = window.innerWidth < 768;
+        // Posisi objek yang menyebar di layar
+        createObj(new THREE.IcosahedronGeometry(6, 1), isMob ? 8 : 40, 20, -15);    // Atas Kanan
+        createObj(new THREE.TorusGeometry(5, 2, 16, 100), isMob ? -10 : -45, -15, -20); // Bawah Kiri
+        createObj(new THREE.OctahedronGeometry(4, 0), isMob ? 5 : -30, 25, -10);     // Atas Kiri
+        createObj(new THREE.TetrahedronGeometry(3, 0), isMob ? -5 : 35, -25, -5);    // Bawah Kanan
+
+        camera.position.z = 20;
+
+        // Interactive Mouse
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX - window.innerWidth / 2) * 0.0008;
+            mouseY = (e.clientY - window.innerHeight / 2) * 0.0008;
+        });
+
+        const clock = new THREE.Clock();
+        function animate() {
+            const time = clock.getElapsedTime();
+            requestAnimationFrame(animate);
+
+            ribbons.forEach(r => {
+                const pos = r.mesh.geometry.attributes.position.array;
+                for (let i = 0; i < pos.length; i += 3) {
+                    pos[i+1] = Math.sin(pos[i] * 0.1 + time * r.speed + r.phase) * r.amp;
+                }
+                r.mesh.geometry.attributes.position.needsUpdate = true;
+                r.mesh.rotation.y = mouseX * 0.2;
+            });
+
+            objects.forEach((obj, i) => {
+                obj.rotation.x += 0.002 * (i + 1);
+                obj.rotation.y += 0.003 * (i + 1);
+                // Parallax pergerakan objek
+                obj.position.x += (mouseX * 5 - (obj.position.x * 0.01)) * 0.1;
+                obj.position.y += (-mouseY * 5 - (obj.position.y * 0.01)) * 0.1;
+            });
+
+            const prof = document.getElementById('parallax-img');
+            if(prof && !isMob) {
+                prof.style.transform = `translate(${mouseX * 60}px, ${-mouseY * 60}px)`;
+            }
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        const form = document.getElementById("my-form");
+const toast = document.getElementById("toast");
+const btn = document.getElementById("submit-btn");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    // Efek loading pada tombol
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "MENGIRIM...";
+    btn.style.opacity = "0.7";
+    btn.disabled = true;
+
+    const data = new FormData(e.target);
+    
+    try {
+        const response = await fetch(e.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            // Munculkan notifikasi sukses
+            toast.classList.add("show");
+            form.reset();
+            setTimeout(() => { toast.classList.remove("show"); }, 4000);
+        } else {
+            alert("Oops! Terjadi masalah. Pastikan HashID Formspree kamu benar.");
+        }
+    } catch (error) {
+        alert("Terjadi kesalahan koneksi.");
+    } finally {
+        // Kembalikan tombol ke semula
+        btn.innerHTML = originalText;
+        btn.style.opacity = "1";
+        btn.disabled = false;
+    }
+});
+    </script>
+</body>
+</html>
